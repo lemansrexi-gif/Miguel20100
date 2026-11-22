@@ -976,7 +976,7 @@ window.AIDIFF=2;(function(){const b=document.getElementById('dif');b.onclick=()=
 document.getElementById('race').onclick=race;document.querySelector('.obj').onclick=openOb;chk();
 document.getElementById('hb').addEventListener('click',()=>document.querySelector('#nav [data-t="Inicio"]').click());
 const nm=document.getElementById('nm'),go=document.getElementById('go');
-nm.addEventListener('input',()=>{go.disabled=!nm.value.trim()});
+const syncGo=()=>{go.disabled=!nm.value.trim()};['input','change','keyup','paste','blur','focus','compositionend','touchstart'].forEach(e=>nm.addEventListener(e,()=>setTimeout(syncGo,0)));setInterval(syncGo,300);syncGo();
 function start(){const n=nm.value.trim();if(!n)return;document.getElementById('pname').textContent=n.toUpperCase();document.getElementById('welcome').style.display='none';say('¡Bienvenido, '+n+'!')}
 go.addEventListener('click',start);
 /* ===== PATROCINADORES ===== */
