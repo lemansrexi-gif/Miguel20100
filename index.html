@@ -206,6 +206,13 @@ main.q .bk,main.q .hb{display:block}main.q .avatar,main.q .who{display:none}
 #splash .dots::after{content:'';animation:spd 1.2s steps(4,end) infinite}
 @keyframes spl{to{transform:scaleX(.92)}}
 @keyframes spd{0%{content:''}25%{content:'.'}50%{content:'..'}75%,100%{content:'...'}}
+/* FIX: que la pantalla nunca sea más alta que el celular (tarjetas de abajo cortadas) */
+#app{grid-template-rows:minmax(0,1fr);min-height:0}
+main{min-height:0;overflow:hidden}
+.stage{overflow:hidden}
+.car{max-height:100%}
+#carsel{flex:none}
+@media (max-height:420px){.ci{height:46px}.ci span{font-size:26px}.cb button{padding:6px 2px}#carsel{padding:4px 10px 6px}}
 </style>
 <link rel="manifest" href="manifest.json"><meta name="theme-color" content="#070d1f"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <script>if("serviceWorker"in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})</script>
