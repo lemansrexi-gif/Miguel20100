@@ -895,6 +895,7 @@ const gr=new THREE.Mesh(new THREE.PlaneGeometry(14000,14000),GRASSMAT);gr.rotati
    for(let gx=x0;gx<x1;gx+=g0)for(let gy=y0;gy<y1;gy+=g0){const x=gx+Math.random()*g0,y=gy+Math.random()*g0,d=dmin(x,y);
     if(d<24||d>520)continue;const gr=gv(x,y)>.25;
     if(d>170?Math.random()>(gr?(d<340?.3:.12):.02):Math.random()>(gr?.8:.07))continue;
+    if(Math.random()<.5)continue;/* mitad de árboles para que el juego corra más fluido */
     if(d<62&&RMSTP.some(p=>(p[0]-x)**2+(p[1]-y)**2<1764))continue;
     const r=Math.random(),ty=gr?(r<.38?0:r<.7?1:r<.88?2:3):(r<.2?0:r<.4?1:r<.75?2:3),hh=ty<2?15+Math.random()*13:ty===2?8+Math.random()*6:7+Math.random()*5;
     const ix=Math.floor(x/CS),iy=Math.floor(y/CS),k=ix+','+iy,c=ch[k]||(ch[k]={cx:(ix+.5)*CS,cz:(iy+.5)*CS,l:[]});
